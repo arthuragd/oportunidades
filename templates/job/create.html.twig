@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+    {% block title %}CreateJob!{% endblock %}
+
+        {% block body %}
+            <h2 class="page-header">Criar Oportunidade de Emprego</h2>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        {% endblock %}

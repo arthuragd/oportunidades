@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{form_start(form)}}
+        <div class="container"> 
+                <div class="card-deck mb-3 text-center">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">{{ job.name }}</h4>
+                        </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">Data Inicial: {{job.dateStart|date('d F, Y')}} <small class="text-muted"></small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                        <li>Data final: {{ job.dateEnd|date('d F, Y') }}</li>
+                        </ul>
+                        <ul class="list-unstyled mt-3 mb-4">
+                        <li>{{form_widget(form)}}</li>
+                        </ul>
+                        {% if reg != null  %}
+                             <a href="/job" class="btn btn-lg btn-block btn-outline-danger">Voce ja se candidatou a essa Vaga</a>
+                        {% else %}
+                            <button type="submit" class="btn btn-lg btn-block btn-outline-success">Candidatar</button>
+                            <a href="/job" class="btn btn-lg btn-block btn-outline-danger">Voltar</a>
+                        {% endif %}
+                    </div>
+                    </div>
+                </div>
+            </div
+    {{form_end(form)}}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+    {% block title %}Jobs!{% endblock %}
+
+        {% block body %}
+            <h1>3 Oportunidades Recentes</h1>
+            <div class="container">
+                
+                <div class="card-deck mb-3 text-center">
+                    {% for output in outputs %}
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">{{ output.name }}</h4>
+                        </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">Data Inicial: {{output.dateStart|date('d F, Y')}} <small class="text-muted"></small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                        <li>Data final: {{ output.dateEnd|date('F j, Y') }}</li>
+                        </ul>
+                        <a href="/register/view/{{ output.id }}" class="btn btn-lg btn-block btn-outline-primary">Candidatar a Vaga</a>
+                    </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div
+            <h1>{{ total }} Oportunidades</h1>
+
+            <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">Oportunidade</th>
+                    <th scope="col">Data Inicial</th>
+                    <th scope="col">Data Final</th>
+                    <th scope="col"></th>
+                 </tr>
+            </thead>
+            <tbody>
+            {% for job in jobs %}
+            <tr>
+                <td>{{ job.name }}</td>
+                <td>{{ job.dateStart|date('d F, Y')}}</td>
+                <td>{{ job.dateEnd|date('d F, Y')}}</td>
+                <td><a href="/register/view/{{ job.id }}" class="btn btn-default">Candidatar</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+        {% endblock %}

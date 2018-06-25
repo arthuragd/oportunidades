@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% if m != null %}
+        <h2 class="page-header">{{m}}</h2>
+    {% else %}
+        <h2 class="page-header">Editar Curriculo</h2>
+    {% endif %}
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+{% endblock %}
